@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Carregamento</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .loader-container {
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #ff0000, #ffffff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 2s forwards;
+        }
+
+        .loader {
+            width: 300px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            background: #eee;
+            border-radius: 5px;
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .progress-bar {
+            height: 20px;
+            border-radius: 5px;
+            background: #ff0000;
+            width: 0;
+            transition: width 0.3s; /* Adiciona uma transição suave */
+        }
+
+        .percentage-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #000;
+            font-weight: bold;
+        }
+
+        .redirect-button {
+            background: #ff0000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader-container">
+        <div class="loader">
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+                <div class="percentage-text">0%</div>
+            </div>
+            <button class="redirect-button" onclick="redirectToAnotherPage()">Ir para Outra Página</button>
+        </div>
+    </div>
+
+    <script>
+        let progressBar = document.querySelector(".progress-bar");
+        let percentageText = document.querySelector(".percentage-text");
+        let loader = document.querySelector(".loader");
+
+        function redirectToAnotherPage() {
+            // Redirecionar para a outra página
+            window.location.href = "1.html";
+        }
+
+        function simulateLoading() {
+            let width = 0;
+            let interval = setInterval(function () {
+                if (width >= 100) {
+                    clearInterval(interval);
+                    // Quando atingir 100%, mostrar o botão
+                    loader.style.display = "block";
+                } else {
+                    width++;
+                    progressBar.style.width = width + "%";
+                    percentageText.innerText = width + "%";
+                }
+            }, 20);
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Garante um tempo mínimo de carregamento de 1 segundo
+            setTimeout(function () {
+                simulateLoading();
+            }, 1000);
+        });
+
+        // Atualiza a largura da barra de progresso conforme a página é carregada
+        document.onreadystatechange = function () {
+            let loadingPercentage = Math.floor((document.readyState / 4) * 100);
+            progressBar.style.width = loadingPercentage + "%";
+            percentageText.innerText = loadingPercentage + "%";
+        };
+    </script>
+</body>
+</html>
