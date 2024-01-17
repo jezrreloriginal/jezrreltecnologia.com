@@ -154,7 +154,9 @@ th {
     min-width: 100%;
     box-sizing: border-box;
 }
-
+header.hd{
+    background-color: #444;
+   }
 
 .lista {
     max-width: 800px; 
@@ -355,6 +357,7 @@ footer{
     display: flex;
     flex-direction: column;
    }
+  
    a:hover{
     color: rgb(245, 245, 245);
     border: 1px solid wheat;
@@ -434,13 +437,16 @@ a{
     bottom: 20px;
     right: 20px;
     z-index: 1000;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0);
 }
 
 .whatsapp-icon a {
     display: block;
+    
 }
 
 .whatsapp-icon img {
+    
     width: 50px; 
     height: auto;
 }
