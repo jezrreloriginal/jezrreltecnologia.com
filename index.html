@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 
       <!-- Google tag (gtag.js) -->
@@ -26,6 +26,10 @@
 
      <audio src="Technology_Edit02.wav" autoplay muted></audio>
     <style>
+
+        *{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
         body {
             margin: 0;
             overflow: hidden;
@@ -43,17 +47,21 @@
 
         .loader {
             width: 300px;
-            background: #fff;
+            background: #ffffff00;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 20px rgb(0, 0, 0);
             display: none;
+            transition: 2s;
         }
-
+.loader:hover {
+    transition: 2s;
+    box-shadow: 0 0 20px rgb(252, 252, 252);
+}
         .progress-bar-container {
             width: 100%;
-            background: #eee;
+            background: #eeeeee00;
             border-radius: 5px;
             margin: 15px 0;
             position: relative;
@@ -62,7 +70,7 @@
         .progress-bar {
             height: 20px;
             border-radius: 5px;
-            background: #ff0000;
+            background: #ff0000d7;
             width: 0;
             transition: width 0.3s; /* Adiciona uma transição suave */
         }
@@ -72,16 +80,17 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: #000;
+            color: #000000cb;
             font-weight: bold;
         }
 
         .redirect-button {
-            background: #ff0000;
-            color: #fff;
+            background: #ff000000;
+            color: #000000;
             padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
+            box-shadow: 0 0 20px rgb(0, 0, 0);
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-radius: 15px;
             cursor: pointer;
             margin-top: 15px;
         }
@@ -94,11 +103,23 @@
                 opacity: 1;
             }
         }
+
+        .loader img{
+            box-shadow: 0 0 20px rgb(0, 0, 0);
+            border-radius: 15px;
+            background-color: #ff000000;
+            width: 300px;
+            height: 100px;
+      
+            
+        }
     </style>
 </head>
 <body>
+    
     <div class="loader-container">
         <div class="loader">
+            <img src="https://share.creavite.co/65a4705ca5496cfa0604f07a.gif" alt="" id="lg"" alt="">
             <div class="progress-bar-container">
                 <div class="progress-bar"></div>
                 <div class="percentage-text">0%</div>
