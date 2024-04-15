@@ -451,3 +451,19 @@ a{
     width: 50px; 
     height: auto;
 }
+
+
+  <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const scrollElements = document.querySelectorAll('.scroll');
+
+            scrollElements.forEach(function(element) {
+                element.addEventListener('click', function() {
+                    const target = document.getElementById(this.dataset.target);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+        });
+    </script>
